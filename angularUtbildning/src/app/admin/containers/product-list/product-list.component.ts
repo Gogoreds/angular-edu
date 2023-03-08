@@ -5,11 +5,9 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-list',
   template: `
     <div>
-      <div>
-        <!-- {{ product | json }} -->
-        {{ product.name }} 
-        {{ product.price }} 
-      </div>
+      <app-product-card [product]="products[0]"></app-product-card>
+      <app-product-card [product]="products[1]"></app-product-card>
+      <app-product-card [product]="products[2]"></app-product-card>
     </div>
   `,
   styles: [
@@ -24,25 +22,25 @@ export class ProductListComponent {
   ngOnInit(): void {
     this.products = [
       {
-        id: '1',
-        name: 'Product 1',
-        icon: 'Product 1',
+        id: 'y8z0As',
+        name: 'Just Chocolate',
+        icon: 'just-chocolate',
         price: 100,
-        description: 'This is product 1',
+        description: 'This is just-chocolate',
       },
       {
-        id: '2',
-        name: 'Product 2',
-        icon: 'Product 2',
+        id: '3u98Kl',
+        name: 'Glazed Fudge',
+        icon: 'glazed-fudge',
         price: 130,
-        description: 'This is product 2',
+        description: 'This is Glazed Fudge',
       },
       {
-        id: '3',
-        name: 'Product 3',
-        icon: 'Product 3',
+        id: 'ae098s',
+        name: 'Caramel Swirl',
+        icon: 'caramel-swirl',
         price: 150,
-        description: 'This is product 3',
+        description: 'This is caramel swirl',
       }
     ];
 
