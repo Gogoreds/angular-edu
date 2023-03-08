@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: ` 
   <div class="app">
-    <h1 (click)="handleClick($event)">{{ newMessage }}</h1>
-    <input [value]="message" (input)="handleInput($event)">
+    <product-list></product-list>
   </div> `,
   styles: [
     `
