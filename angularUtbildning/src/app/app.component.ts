@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
   }
 
   handleInput(event: Event) {
+    // We can use type assersion here to demosnstrate the type of event we want to show !!!
+    const { value } = event.target as HTMLInputElement;
     console.log(event);
   }
 }
