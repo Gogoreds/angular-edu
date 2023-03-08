@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -15,8 +16,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class ProductListComponent {
-  product!: any;
-  products!: any[];
+  product!: Product;
+  products!: Product[];
 
   constructor() { }
 
