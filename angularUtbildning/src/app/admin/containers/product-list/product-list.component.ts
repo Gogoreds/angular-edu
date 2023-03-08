@@ -14,7 +14,6 @@ import { Product } from '../../models/product.model';
   ]
 })
 export class ProductListComponent {
-  product!: Product;
   products!: Product[];
 
   constructor() { }
@@ -43,8 +42,5 @@ export class ProductListComponent {
         description: 'This is caramel swirl',
       }
     ];
-
-    this.product = this.products[0];
-
   }
 }
