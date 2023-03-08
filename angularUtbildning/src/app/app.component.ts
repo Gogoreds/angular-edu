@@ -4,15 +4,14 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: ` 
   <div class="app">
-    <h1 (click)="handleClick()">{{ message.length ? message : 'This isnt the message youre looking for!' }}</h1>
-    <input [value]="message" (input)="handleInput">
-
+    <h1 (click)="handleClick($event)">{{ newMessage }}</h1>
+    <input [value]="message" (input)="handleInput($event)">
   </div> `,
   styles: [
     `
       .app {
         margin-top: 50px;
-        font-size: 22px;
+        font-size: 14px;
         color: #fff;
         text-align: center;
       }
@@ -22,18 +21,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent implements OnInit {
   message!: string;
+  newMessage!: string;
 
   ngOnInit() {
     this.message ='Starting with Angular!';
   }
 
-  handleClick() {
+  handleClick(event: Event) {
     console.log('Clicked');
   }
 
   handleInput(event: Event) {
     // We can use type assersion here to demosnstrate the type of event we want to show !!!
     const { value } = event.target as HTMLInputElement;
-    console.log(event);
+    this.newMessage = value;
   }
 }
