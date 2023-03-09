@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div class="app">
       <header class="header">
-        <img src="/asets/img/logo.svg" alt="Ultimate Donuts" />
+        <img src="/assets/img/logo.svg" alt="Ultimate Donuts" class="logo" />
       </header>
       <app-product-list></app-product-list>
     </div>
@@ -20,6 +20,16 @@ import { Component, OnInit } from '@angular/core';
         margin: 25px auto;
         padding: 25px;
         border: 4px solid #ef9fc7;
+      }
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      .logo {
+        width: 100px;
+        height: 88px;
       }
     `,
   ],
