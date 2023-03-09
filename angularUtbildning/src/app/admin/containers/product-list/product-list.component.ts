@@ -10,13 +10,12 @@ import { Product } from '../../models/product.model';
       <app-product-card [product]="products[2]"></app-product-card>
     </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class ProductListComponent {
   products!: Product[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.products = [
@@ -40,7 +39,7 @@ export class ProductListComponent {
         icon: 'caramel-swirl',
         price: 150,
         description: 'This is caramel swirl',
-      }
+      },
     ];
   }
 }

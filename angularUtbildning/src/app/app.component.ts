@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: ` 
-  <div class="app">
-    <app-product-list></app-product-list>
-  </div> `,
+  template: `
+    <div class="app">
+      <app-product-list></app-product-list>
+    </div>
+  `,
   styles: [
     `
       .app {
@@ -17,13 +18,12 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-
 export class AppComponent implements OnInit {
   message!: string;
   newMessage!: string;
 
   ngOnInit() {
-    this.message ='Starting with Angular!';
+    this.message = 'Starting with Angular!';
   }
 
   handleClick(event: Event) {
