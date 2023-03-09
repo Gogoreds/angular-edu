@@ -4,16 +4,22 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app">
+      <header class="header">
+        <img src="/asets/img/logo.svg" alt="Ultimate Donuts" />
+      </header>
       <app-product-list></app-product-list>
     </div>
   `,
   styles: [
     `
       .app {
-        margin-top: 50px;
-        font-size: 14px;
-        color: #fff;
-        text-align: center;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 94%;
+        margin: 25px auto;
+        padding: 25px;
+        border: 4px solid #ef9fc7;
       }
     `,
   ],
