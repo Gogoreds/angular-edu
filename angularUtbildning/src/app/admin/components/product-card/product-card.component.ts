@@ -4,7 +4,12 @@ import { Product } from '../../models/product.model';
 @Component({
   selector: 'app-product-card',
   template: `
-    <div class="product-card" [class.product-card-promo]="product.promo">
+    <div
+      class="product-card"
+      [ngClass]="{
+        'product-card-promo': product.promo
+      }"
+    >
       <img
         src="/assets/img/{{ product.icon }}.svg"
         [alt]="product.name"
