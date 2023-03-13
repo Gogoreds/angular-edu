@@ -4,12 +4,7 @@ import { Product } from '../../models/product.model';
 @Component({
   selector: 'app-product-card',
   template: `
-    <div
-      class="product-card"
-      [ngStyle]="{
-        border: product.promo ? '2px solid #dddac0c2' : 'none'
-      }"
-    >
+    <div class="product-card" [class.product-card-promo]="product.promo">
       <img
         src="/assets/img/{{ product.icon }}.svg"
         [alt]="product.name"
@@ -44,6 +39,9 @@ import { Product } from '../../models/product.model';
         &-icon {
           width: 40px;
           margin-right: 10px;
+        }
+        &-promo {
+          border: #cfccaf 2px solid;
         }
       }
     `,
