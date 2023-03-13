@@ -17,7 +17,9 @@ import { Product } from '../../models/product.model';
       />
       <div>
         <p class="product-card-name">{{ product.name }}</p>
-        <p class="product-card-price">{{ product.price }}</p>
+        <p class="product-card-price">
+          {{ product.price + '.00' | currency : 'SEK ' }}
+        </p>
       </div>
     </div>
   `,
