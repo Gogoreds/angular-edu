@@ -8,6 +8,10 @@ import { Product } from '../../models/product.model';
       <ng-container
         *ngIf="products.length; then cards; else nothing"
       ></ng-container>
+
+      <!-- ng-template is used to define a template that has a behavior
+       similar to a component. -->
+
       <ng-template #cards>
         <app-product-card [product]="products[0]"></app-product-card>
         <app-product-card [product]="products[1]"></app-product-card>
