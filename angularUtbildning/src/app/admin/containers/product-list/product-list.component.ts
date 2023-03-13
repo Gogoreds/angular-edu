@@ -5,9 +5,11 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-list',
   template: `
     <div>
-      <app-product-card [product]="products[0]"></app-product-card>
-      <app-product-card [product]="products[1]"></app-product-card>
-      <app-product-card [product]="products[2]"></app-product-card>
+      <div *ngIf="products.length">
+        <app-product-card [product]="products[0]"></app-product-card>
+        <app-product-card [product]="products[1]"></app-product-card>
+        <app-product-card [product]="products[2]"></app-product-card>
+      </div>
     </div>
   `,
   styles: [],
