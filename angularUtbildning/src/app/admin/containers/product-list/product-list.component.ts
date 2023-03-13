@@ -31,6 +31,7 @@ export class ProductListComponent {
         name: 'Glazed Fudge',
         icon: 'glazed-fudge',
         price: 130,
+        promo: true,
         description: 'This is Glazed Fudge',
       },
       {
