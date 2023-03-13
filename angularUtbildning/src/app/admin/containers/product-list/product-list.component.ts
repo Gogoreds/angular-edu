@@ -5,18 +5,22 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-list',
   template: `
     <div>
-      <ng-container
-        *ngIf="products.length; then cards; else nothing"
-      ></ng-container>
+      <ng-container *ngIf="products.length; else nothing">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+        ></app-product-card>
+      </ng-container>
 
       <!-- ng-template is used to define a template that has a behavior
        similar to a component. -->
 
-      <ng-template #cards>
+      <!-- <ng-template #cards>
         <app-product-card [product]="products[0]"></app-product-card>
         <app-product-card [product]="products[1]"></app-product-card>
         <app-product-card [product]="products[2]"></app-product-card>
-      </ng-template>
+      </ng-template> -->
+
       <ng-template #nothing>
         <p>No products here...</p>
       </ng-template>
