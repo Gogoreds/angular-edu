@@ -16,7 +16,33 @@ import { Product } from '../../models/product.model';
       </div>
     </div>
   `,
-  styles: [],
+  styles: [
+    `
+      .product-card {
+        display: flex;
+        align-items: center;
+        background-color: #eeefec;
+        border-radius: 4px;
+        padding: 4px 12px;
+        margin-bottom: 4px;
+        transition: transform 0.2s ease-in-out;
+        &:hover {
+          transform: translateY(-3px);
+        }
+        &-name {
+          font-size: 16px;
+        }
+        &-price {
+          font-size: 14px;
+          color: #c14583;
+        }
+        &-icon {
+          width: 40px;
+          margin-right: 10px;
+        }
+      }
+    `,
+  ],
 })
 export class ProductCardComponent {
   @Input() product!: Product;
