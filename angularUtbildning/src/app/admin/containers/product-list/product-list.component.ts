@@ -5,11 +5,14 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-list',
   template: `
     <div>
-      <ng-container *ngIf="products.length; else nothing">
+      <ng-container
+        *ngIf="products.length; then cards; else nothing"
+      ></ng-container>
+      <ng-template #cards>
         <app-product-card [product]="products[0]"></app-product-card>
         <app-product-card [product]="products[1]"></app-product-card>
         <app-product-card [product]="products[2]"></app-product-card>
-      </ng-container>
+      </ng-template>
       <ng-template #nothing>
         <p>No products here...</p>
       </ng-template>
