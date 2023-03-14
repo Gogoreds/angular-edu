@@ -10,6 +10,13 @@ import { Product } from '../../models/product.model';
           *ngFor="let product of products; trackBy: trackById"
           [product]="product"
         ></app-product-card>
+
+        <div *ngFor="let product of products; index as i; odd as o; even as e">
+          {{ i + 1 }}
+          {{ o }}
+          {{ e }}
+        </div>
+
       </ng-container>
 
       <!-- ng-template is used to define a template that has a behavior
@@ -20,6 +27,7 @@ import { Product } from '../../models/product.model';
         <app-product-card [product]="products[1]"></app-product-card>
         <app-product-card [product]="products[2]"></app-product-card>
       </ng-template> -->
+
 
       <ng-template #nothing>
         <p>No products here...</p>
@@ -59,7 +67,7 @@ export class ProductListComponent {
       },
     ];
   }
-  
+
   trackById(index: number, value: Product) {
     return value.id;
   }
