@@ -7,7 +7,7 @@ import { Product } from '../../models/product.model';
     <div>
       <ng-container *ngIf="products.length; else nothing">
         <app-product-card
-          *ngFor="let product of products"
+          *ngFor="let product of products; trackBy: trackById"
           [product]="product"
         ></app-product-card>
       </ng-container>
@@ -58,5 +58,9 @@ export class ProductListComponent {
         description: 'This is caramel swirl',
       },
     ];
+  }
+  
+  trackById(index: number, value: Product) {
+    return value.id;
   }
 }
