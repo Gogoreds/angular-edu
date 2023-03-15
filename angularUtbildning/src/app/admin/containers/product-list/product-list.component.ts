@@ -42,23 +42,38 @@ export class ProductListComponent {
         name: 'Just Chocolate',
         icon: 'just-chocolate',
         price: 100,
-        description: 'This is just-chocolate',
+        promo: 'limited',
+        description: 'This is just-chocolate.',
       },
       {
         id: '3u98Kl',
         name: 'Glazed Fudge',
         icon: 'glazed-fudge',
         price: 130,
-        promo: true,
-        description: 'This is Glazed Fudge',
+        promo: 'new',
+        description: 'This is Glazed Fudge.',
       },
       {
         id: 'ae098s',
         name: 'Caramel Swirl',
         icon: 'caramel-swirl',
         price: 150,
-        description: 'This is caramel swirl',
+        description: 'This is caramel swirl.',
       },
+      {
+        id: 'ag0858',
+        name: 'Sour Supreme',
+        icon: 'sour-supreme',
+        price: 120,
+        description: 'For the sour advocate.',
+      },
+      {
+        id: 'KL698s',
+        name: 'Zesty Lemon',
+        icon: 'zesty-lemon',
+        price: 139,
+        description: 'Delicious lucious lemon.',
+      }
     ];
   }
 
