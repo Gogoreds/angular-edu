@@ -7,6 +7,7 @@ import { ProductSingleComponent } from './containers/product-single/product-sing
 
 // Components
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 // Services
 
@@ -15,7 +16,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 // Directives
 
 @NgModule({
-  declarations: [ProductListComponent, ProductSingleComponent, ProductCardComponent],
+  declarations: [ProductListComponent, ProductSingleComponent, ProductCardComponent, ProductFormComponent],
   imports: [CommonModule],
   exports: [ProductListComponent, ProductSingleComponent],
 })

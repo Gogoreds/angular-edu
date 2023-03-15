@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-product-single',
   template: `
-    <p>
-      product-single works!
-    </p>
+    <div class="container">
+      <app-product-form></app-product-form>
+    </div>
   `,
   styles: [
   ]
