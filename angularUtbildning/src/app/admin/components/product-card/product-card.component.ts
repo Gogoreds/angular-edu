@@ -18,9 +18,11 @@ import { Product } from '../../models/product.model';
       <div>
         <p class="product-card-name">{{ product.name }}
         <ng-container [ngSwitch]="product.promo"]>
-         <span *ngSwitchCase=" 'new'" class="product-card-lable">NEW</span>
-         <span *ngSwitchCase=" 'limited'" class="product-card-lable">LIMITED</span>
-         <span *ngSwitchDefault class="product-card-lable">Vanila AF</span>
+          <span class="product-card-lable">
+            <ng-template [ngSwitchCase]="'new'"]>NEW</ng-template>
+            <ng-template [ngSwitchCase]="'limited'">LIMITED</ng-template>
+            <ng-template ngSwitchDefault> Nothing Special </ng-template>
+          </span>
         </ng-container>
         </p>
 
@@ -59,7 +61,6 @@ import { Product } from '../../models/product.model';
           color: #a7a7a7;
           decoration: italic;
         }
-      
         &-price {
           font-size: 14px;
           color: #c14583;
@@ -69,7 +70,7 @@ import { Product } from '../../models/product.model';
           margin-right: 10px;
         }
         &-promo {
-          border: #cfccaf 2px solid;
+          border: #e6e8e3 2px solid;
         }
       }
     `,
