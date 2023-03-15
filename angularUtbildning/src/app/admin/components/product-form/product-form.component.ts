@@ -3,9 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-product-form',
   template: `
-    <p>
-      product-form works!
-    </p>
+    <form class="product-form" #form="ngForm">
+      <pre>
+        {{ form.value | json }}
+      </pre>
+    </form>
   `,
   styles: [
   ]

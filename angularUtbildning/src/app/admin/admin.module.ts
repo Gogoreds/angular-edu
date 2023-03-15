@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // Containers
 import { ProductListComponent } from './containers/product-list/product-list.component';
@@ -17,7 +18,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 
 @NgModule({
   declarations: [ProductListComponent, ProductSingleComponent, ProductCardComponent, ProductFormComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [ProductListComponent, ProductSingleComponent],
 })
 export class AdminModule {}
