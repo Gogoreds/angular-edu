@@ -20,6 +20,7 @@ import { Product } from '../../models/product.model';
         <ng-container [ngSwitch]="product.promo"]>
          <span *ngSwitchCase=" 'new'" class="product-card-lable">NEW</span>
          <span *ngSwitchCase=" 'limited'" class="product-card-lable">LIMITED</span>
+         <span *ngSwitchDefault class="product-card-lable">Vanila AF</span>
         </ng-container>
         </p>
 
