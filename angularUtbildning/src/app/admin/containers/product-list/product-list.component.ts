@@ -11,12 +11,6 @@ import { Product } from '../../models/product.model';
           [product]="product"
         ></app-product-card>
 
-        <ng-template ngFor [ngForOf]="products" let-product> 
-          <app-product-card [product]="product">
-
-          </app-product-card>
-        </ng-template>
-
       </ng-container>
 
       <!-- ng-template is used to define a template that has a behavior
