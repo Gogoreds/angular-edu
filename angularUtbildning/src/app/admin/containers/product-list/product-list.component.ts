@@ -11,7 +11,7 @@ import { Product } from '../../models/product.model';
           [product]="product"
         ></app-product-card>
 
-        <div *ngFor="let product of products; index as i; odd as o; even as e">
+        <div *ngFor="let product of products; index as i; odd as o; even as e" [style.color]="e ? 'orange' : 'teal'">
           {{ i + 1 }}
           {{ o }}
           {{ e }}
