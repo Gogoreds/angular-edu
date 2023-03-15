@@ -11,11 +11,11 @@ import { Product } from '../../models/product.model';
           [product]="product"
         ></app-product-card>
 
-        <div *ngFor="let product of products; index as i; odd as o; even as e" [style.color]="e ? 'orange' : 'teal'">
-          {{ i + 1 }}
-          {{ o }}
-          {{ e }}
-        </div>
+        <ng-template ngFor [ngForOf]="products" let-product> 
+          <app-product-card [product]="product">
+
+          </app-product-card>
+        </ng-template>
 
       </ng-container>
 
