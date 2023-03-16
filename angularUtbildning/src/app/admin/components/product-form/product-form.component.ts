@@ -6,36 +6,36 @@ import { Component } from '@angular/core';
     <form class="product-form" #form="ngForm">
       <label>
         <span>Name</span>
-        <input type="text" name="name" class="input" ngModel/>
+        <input type="text" name="name" class="input" required ngModel/>
       </label>
 
       <label>
         <span>Icon</span>
-        <select name="icon" class="input input--select" ngModel>
+        <select name="icon" class="input input--select" required ngModel>
           <option *ngFor="let icon of icons" [ngValue]="icon">{{ icon }}</option>
         </select>
       </label>
 
       <label>
         <span>Price</span>
-        <input type="number" name="price" class="input" ngModel/>
+        <input type="number" name="price" class="input" required ngModel/>
       </label>
 
       <div class="product-form-radios">
 
         <p class="product-form-radios-label">Promo:</p>
         <label class="">
-          <input class="" type="radio" name="promo" [value]="undefined" ngModel/>
+          <input class="" type="radio" name="promo" required [value]="undefined" ngModel/>
           <span>None</span>
         </label>
 
         <label class="">
-          <input class="" type="radio" name="promo" value="new" ngModel/>
+          <input class="" type="radio" name="promo" required value="new" ngModel/>
           <span>New</span>
         </label>
 
         <label class="">
-          <input class="" type="radio" name="promo" value="limited" ngModel/>
+          <input class="" type="radio" name="promo" required value="limited" ngModel/>
           <span>Limited</span>
         </label>
 
@@ -43,7 +43,7 @@ import { Component } from '@angular/core';
 
       <label class="">
           <span>Description</span>
-          <textarea class="input input--textarea" name="description" ngModel>
+          <textarea class="input input--textarea" name="description" required ngModel>
           </textarea>
         </label>
 
