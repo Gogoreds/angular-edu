@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
         <span>Name</span>
         <input type="text" name="name" class="input" ngModel/>
       </label>
+
+      <label>
+        <span>Icon</span>
+        <select name="icon" class="input input--select" ngModel>
+          <option *ngFor="let icon of icons" [ngValue]="icon">{{ icon }}</option>
+        </select>
+      </label>
+
       <label>
         <span>Price</span>
         <input type="number" name="price" class="input" ngModel/>
@@ -55,5 +63,16 @@ import { Component } from '@angular/core';
   ]
 })
 export class ProductFormComponent {
+
+  icons: string[] = [
+    'caramel-swirl',
+    'glazed-fudge',
+    'just-chocolate',
+    'sour-supreme',
+    'strawberry-glaze',
+    'vanilla-sundae',
+    'zesty-lemon',
+  ];
+
 
 }
