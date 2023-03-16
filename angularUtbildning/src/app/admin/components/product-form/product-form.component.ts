@@ -47,7 +47,7 @@ import { Component } from '@angular/core';
           </textarea>
         </label>
 
-      <pre>{{ form.value | json }}</pre>
+      <pre>{{ form.form.status | json }}</pre>
     </form>
   `,
   styles: [
