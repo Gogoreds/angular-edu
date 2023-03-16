@@ -22,20 +22,30 @@ import { Component } from '@angular/core';
       </label>
 
       <div class="product-form-radios">
+
         <p class="product-form-radios-label">Promo:</p>
         <label class="">
           <input class="" type="radio" name="promo" [value]="undefined" ngModel/>
           <span>None</span>
         </label>
+
         <label class="">
           <input class="" type="radio" name="promo" value="new" ngModel/>
           <span>New</span>
         </label>
+
         <label class="">
           <input class="" type="radio" name="promo" value="limited" ngModel/>
           <span>Limited</span>
         </label>
+
       </div>
+
+      <label class="">
+          <span>Description</span>
+          <textarea class="input input--textarea" name="description" ngModel>
+          </textarea>
+        </label>
 
       <pre>{{ form.value | json }}</pre>
     </form>
