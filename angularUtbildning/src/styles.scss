@@ -31,7 +31,7 @@ label {
 }
 
 .input {
-  background-color: #f7f7f7d3;
+  background-color: rgb(230, 230, 230);
   border: 2px solid transparent;
   border-radius: 4px;
   padding: 10px 15px;
@@ -39,7 +39,7 @@ label {
   width: 100%;
   font-size: 14px;
   &:focus {
-    border-color: #e3e3e3b7;
+    border-color: rgb(204, 204, 204);
   }
   &--select {
     background-image: url("/assets/img/icon/down.svg");
