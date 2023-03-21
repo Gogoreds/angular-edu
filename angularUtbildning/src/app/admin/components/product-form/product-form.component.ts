@@ -7,12 +7,7 @@ import { Component } from '@angular/core';
       <label>
         <span>Name</span>
         <input type="text" name="name" class="input" required ngModel #name="ngModel"/>
-        <p>{{ name.valid }}</p>
-        <p>{{ name.invalid }}</p>
-        <p>{{ name.touched }}</p>
-        <p>{{ name.untouched }}</p>
-        <p>{{ name.pristine }}</p>
-        <p>{{ name.dirty }}</p>
+        <ng-container *ngIf="name.invalid && name.touched">Write it back!!</ng-container>
       </label>
 
       <label>
