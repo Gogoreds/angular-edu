@@ -57,10 +57,6 @@ import { Component } from '@angular/core';
   `,
   styles: [
   `
-    form .ng-invalid.ng-touched {
-      background: #ffe7e7;
-      border-color: #e66262;
-    }
     .product-form {
       &-radios {
         display: flex;
