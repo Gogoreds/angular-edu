@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <label>
         <span>Name</span>
         <input type="text" name="name" class="input" required minlength="5" ngModel #name="ngModel"/>
-        {{ name.control | json }}
+        <!-- {{ name.control | json }} -->
         <ng-container *ngIf="name.invalid && name.touched">
           <div class="product-form-error" *ngIf="name.errors?.required">Name is required.</div>
           <div class="product-form-error" *ngIf="name.errors?.minlength">Name should be at least 5 characters.</div>
