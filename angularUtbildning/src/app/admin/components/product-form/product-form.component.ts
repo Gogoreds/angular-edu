@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
     <form class="product-form" #form="ngForm">
       <label>
         <span>Name</span>
-        <input type="text" name="name" class="input" required ngModel #name="ngModel"/>
+        <input type="text" name="name" class="input" required minlength="5" ngModel #name="ngModel"/>
         <ng-container *ngIf="name.invalid && name.touched">
-          <div class="product-form-error">Name is required.</div>
+          <div></div>
+          <div class="product-form-error" *ngIf="name.errors?.required">Name is required.</div>
+          <div class="product-form-error" *ngIf="name.errors?.minlength">Name should be at least 5 characters.</div>
         </ng-container>
       </label>
 
