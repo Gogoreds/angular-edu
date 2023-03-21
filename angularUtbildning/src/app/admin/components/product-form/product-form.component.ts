@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
       <label>
         <span>Name</span>
         <input type="text" name="name" class="input" required ngModel #name="ngModel"/>
-        <ng-container *ngIf="name.invalid && name.touched">Write it back!!</ng-container>
+        <ng-container *ngIf="name.invalid && name.touched">
+          <div class="product-form-error">Name is required.</div>
+        </ng-container>
       </label>
 
       <label>
@@ -68,6 +70,10 @@ import { Component } from '@angular/core';
             margin-bottom: 0;
           }
         }
+      }
+      &-error {
+        font-size: 11px;
+        color: #e66262;
       }
     }
   `
