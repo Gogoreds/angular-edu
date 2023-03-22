@@ -53,7 +53,9 @@ import { NgForm } from '@angular/forms';
           </textarea>
         </label>
 
-      <pre>{{ form.form.status | json }}</pre>
+        <button type="submit" class="btn btn--green">Create</button>
+
+      <pre>{{ form.value | json }}</pre>
     </form>
   `,
   styles: [
@@ -94,6 +96,8 @@ export class ProductFormComponent {
     'zesty-lemon',
   ];
 
-  handleSubmit(form: NgForm) {}
+  handleSubmit(form: NgForm) {
+    console.log(form.value)
+  }
 
 }
