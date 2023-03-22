@@ -17,31 +17,37 @@ import { NgForm } from '@angular/forms';
 
       <label>
         <span>Icon</span>
-        <select name="icon" class="input input--select" required ngModel>
+        <select name="icon" class="input input--select" required ngModel #icon="ngModel">
           <option *ngFor="let icon of icons" [ngValue]="icon">{{ icon }}</option>
         </select>
+        <ng-container *ngIf="icon.invalid && icon.touched">
+          <div class="product-form-error" *ngIf="icon.errors?.required">Icon is required.</div>
+        </ng-container>
       </label>
 
       <label>
         <span>Price</span>
-        <input type="number" name="price" class="input" required ngModel/>
+        <input type="number" name="price" class="input" required ngModel #price="ngModel"/>
+        <ng-container *ngIf="price.invalid && price.touched">
+          <div class="product-form-error" *ngIf="price.errors?.required">Price is required.</div>
+        </ng-container>
       </label>
 
       <div class="product-form-radios">
 
         <p class="product-form-radios-label">Promo:</p>
         <label class="">
-          <input class="" type="radio" name="promo" required [value]="undefined" ngModel/>
+          <input class="" type="radio" name="promo" [value]="undefined" ngModel/>
           <span>None</span>
         </label>
 
         <label class="">
-          <input class="" type="radio" name="promo" required value="new" ngModel/>
+          <input class="" type="radio" name="promo" value="new" ngModel/>
           <span>New</span>
         </label>
 
         <label class="">
-          <input class="" type="radio" name="promo" required value="limited" ngModel/>
+          <input class="" type="radio" name="promo" value="limited" ngModel/>
           <span>Limited</span>
         </label>
 
@@ -49,11 +55,14 @@ import { NgForm } from '@angular/forms';
 
       <label class="">
           <span>Description</span>
-          <textarea class="input input--textarea" name="description" required ngModel>
+          <textarea class="input input--textarea" name="description" required ngModel #description="ngModel">
           </textarea>
+          <ng-container *ngIf="description.invalid && description.touched">
+          <div class="product-form-error" *ngIf="description.errors?.required">Description is required.</div>
+        </ng-container>
         </label>
 
-        <button type="submit" class="btn btn--green" [disabled]="form.invalid">Create</button>
+        <button type="submit" class="btn btn--green">Create</button>
 
       <pre>{{ form.value | json }}</pre>
     </form>
@@ -98,7 +107,9 @@ export class ProductFormComponent {
 
   handleSubmit(form: NgForm) {
     if (form.valid) {
-    console.log(form.value)
+    console.log(form.value);
+    } else {
+      form.form.markAllAsTouched();
     }
   }
 }
