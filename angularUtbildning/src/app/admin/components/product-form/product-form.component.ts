@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
     <form class="product-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
       <label>
         <span>Name</span>
-        <input type="text" name="name" class="input" required minlength="5" ngModel #name="ngModel"/>
+        <input type="text" name="name" class="input" required minlength="5" ngModel [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel"/>
         <!-- {{ name.control | json }} -->
         <ng-container *ngIf="name.invalid && name.touched">
           <div class="product-form-error" *ngIf="name.errors?.required">Name is required.</div>
