@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'app/admin/services/product.service';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -14,16 +15,12 @@ import { Product } from '../../models/product.model';
 export class ProductSingleComponent {
   product!: Product;
 
+  constructor(private productService: ProductService) { }
+
   ngOnInit(): void {
-    this.product = {
-        id: 'y8z0As',
-        name: 'Just Chocolate',
-        icon: 'just-chocolate',
-        price: 129,
-        promo: 'limited',
-        description: 'This is just-chocolate.',
-      };
-    }
+    const id = 'y8z0As';
+    this.product = this.productService.products.find((product: Product) => product.id === id) || { name: '', icon: '', price: 0, description: '' };
+  }
 
     onCreate(product: Product) {
       console.log('onCreate', product);
