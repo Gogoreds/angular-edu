@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from 'app/admin/models/product.model';
 
@@ -71,6 +71,7 @@ import { Product } from 'app/admin/models/product.model';
         </div>
         {{ form.submitted }}
 
+      <pre>{{ product | json }}</pre>
       <pre>{{ form.value | json }}</pre>
     </form>
   `,
@@ -106,7 +107,7 @@ import { Product } from 'app/admin/models/product.model';
   ]
 })
 export class ProductFormComponent {
-
+  @Input() product!: Product;
   @Output() create = new EventEmitter<Product>();
 
   icons: string[] = [

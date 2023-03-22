@@ -10,7 +10,9 @@ import { ProductSingleComponent } from './containers/product-single/product-sing
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 
+
 // Services
+import { ProductService } from './services/product.service';
 
 // Guards
 
@@ -19,6 +21,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 @NgModule({
   declarations: [ProductListComponent, ProductSingleComponent, ProductCardComponent, ProductFormComponent],
   imports: [CommonModule, FormsModule],
+  providers: [ProductService],
   exports: [ProductListComponent, ProductSingleComponent],
 })
 export class AdminModule {}
