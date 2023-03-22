@@ -69,10 +69,6 @@ import { Product } from 'app/admin/models/product.model';
         <div class="product-form-working" *ngIf="form.valid && form.submitted">
           Working...
         </div>
-        {{ form.submitted }}
-
-      <pre>{{ product | json }}</pre>
-      <pre>{{ form.value | json }}</pre>
     </form>
   `,
   styles: [

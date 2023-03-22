@@ -59,5 +59,10 @@ export class ProductService {
     }
     return { id: '', name: '', icon: '', price: 0, description: ''};
   }
+
+  create(payload: Product) {
+    this.products = [...this.products, payload];
+    console.log(this.products);
+  }
 }
 

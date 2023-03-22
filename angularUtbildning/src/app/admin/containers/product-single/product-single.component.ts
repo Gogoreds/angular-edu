@@ -15,14 +15,14 @@ import { Product } from '../../models/product.model';
 export class ProductSingleComponent {
   product!: Product;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.product = this.productService.readOne('y8z0As')
+    this.product = this.productService.readOne('xxx')
   }
 
     onCreate(product: Product) {
-      console.log('onCreate', product);
+      this.productService.create(product);
     }
 
 }
