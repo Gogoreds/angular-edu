@@ -53,7 +53,7 @@ import { NgForm } from '@angular/forms';
           </textarea>
         </label>
 
-        <button type="submit" class="btn btn--green">Create</button>
+        <button type="submit" class="btn btn--green" [disabled]="form.invalid">Create</button>
 
       <pre>{{ form.value | json }}</pre>
     </form>
@@ -97,7 +97,8 @@ export class ProductFormComponent {
   ];
 
   handleSubmit(form: NgForm) {
+    if (form.valid) {
     console.log(form.value)
+    }
   }
-
 }
