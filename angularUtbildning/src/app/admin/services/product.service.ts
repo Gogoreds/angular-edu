@@ -6,7 +6,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
 
-  products: Product [] = [
+  private products: Product [] = [
     {
       id: 'y8z0As',
       name: 'Just Chocolate',
@@ -47,4 +47,17 @@ export class ProductService {
   ];
 
   constructor() { }
+
+  read() {
+    return this.products;
+  }
+
+  readOne(id: string) {
+    const product = this.read().find((product: Product) => product.id === id );
+    if (product) {
+      return product;
+    }
+    return { id: '', name: '', icon: '', price: 0, description: ''};
+  }
 }
+

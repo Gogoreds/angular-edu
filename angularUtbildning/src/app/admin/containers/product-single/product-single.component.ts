@@ -18,8 +18,7 @@ export class ProductSingleComponent {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    const id = 'y8z0As';
-    this.product = this.productService.products.find((product: Product) => product.id === id) || { name: '', icon: '', price: 0, description: '' };
+    this.product = this.productService.readOne('y8z0As')
   }
 
     onCreate(product: Product) {

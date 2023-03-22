@@ -37,7 +37,7 @@ export class ProductListComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.products = this.productService.products;
+    this.products = this.productService.read();
   }
 
   trackById(index: number, value: Product) {
