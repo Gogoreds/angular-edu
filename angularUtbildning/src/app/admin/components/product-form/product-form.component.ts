@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-product-form',
   template: `
-    <form class="product-form" #form="ngForm">
+    <form class="product-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
       <label>
         <span>Name</span>
         <input type="text" name="name" class="input" required minlength="5" ngModel #name="ngModel"/>
@@ -93,5 +94,6 @@ export class ProductFormComponent {
     'zesty-lemon',
   ];
 
+  handleSubmit(form: NgForm) {}
 
 }
