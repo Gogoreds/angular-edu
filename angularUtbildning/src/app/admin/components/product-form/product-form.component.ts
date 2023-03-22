@@ -64,6 +64,10 @@ import { NgForm } from '@angular/forms';
 
         <button type="submit" class="btn btn--green">Create</button>
         <button type="button" class="btn btn--grey" (click)="form.resetForm()">Reset Form</button>
+
+        <div class="product-form-working" *ngIf="form.valid && form.submitted">
+          Working...
+        </div>
         {{ form.submitted }}
 
       <pre>{{ form.value | json }}</pre>
@@ -86,6 +90,11 @@ import { NgForm } from '@angular/forms';
             margin-bottom: 0;
           }
         }
+      }
+      &-working {
+        font-style: italic;
+        font-size: 11px;
+        margin: 10px;
       }
       &-error {
         font-size: 11px;
