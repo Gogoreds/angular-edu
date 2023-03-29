@@ -5,7 +5,7 @@ import { Product } from 'app/admin/models/product.model';
 @Component({
   selector: 'app-product-form',
   template: `
-    <form class="product-form" (ngSubmit)="handleSubmit(form)" #form="ngForm">
+    <form class="product-form" #form="ngForm">
       <label>
         <span>Name</span>
         <input type="text" name="name" class="input" required minlength="5" ngModel [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel"/>
@@ -63,7 +63,8 @@ import { Product } from 'app/admin/models/product.model';
         </ng-container>
         </label>
 
-        <button type="submit" class="btn btn--green">Create</button>
+        <button type="submit" class="btn btn--green" (click)="handleCreate(form)">Create</button>
+        <button type="submit" class="btn btn--green" (click)="handleUpdate(form)">Update</button>
         <button type="button" class="btn btn--grey" (click)="form.resetForm()">Reset Form</button>
 
         <div class="product-form-working" *ngIf="form.valid && form.submitted">
@@ -105,6 +106,7 @@ import { Product } from 'app/admin/models/product.model';
 export class ProductFormComponent {
   @Input() product!: Product;
   @Output() create = new EventEmitter<Product>();
+  @Output() update = new EventEmitter<Product>();
 
   icons: string[] = [
     'caramel-swirl',
@@ -116,9 +118,16 @@ export class ProductFormComponent {
     'zesty-lemon',
   ];
 
-  handleSubmit(form: NgForm) {
+  handleCreate(form: NgForm) {
     if (form.valid) {
     this.create.emit(form.value);
+    } else {
+      form.form.markAllAsTouched();
+    }
+  }
+  handleUpdate(form: NgForm) {
+    if (form.valid) {
+    this.update.emit({ id: this.product.id, ...form.value });
     } else {
       form.form.markAllAsTouched();
     }

@@ -64,5 +64,15 @@ export class ProductService {
     this.products = [...this.products, payload];
     console.log(this.products);
   }
+
+  update(payload: Product) {
+    this.products = this.products.map((product: Product) => {
+      if (product.id === payload.id) {
+        return payload;
+      }
+      return product;
+    });
+    console.log(this.products);
+  }
 }
 

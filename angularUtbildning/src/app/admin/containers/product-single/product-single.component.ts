@@ -6,7 +6,7 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-single',
   template: `
     <div class="container">
-      <app-product-form [product]="product" (create)="onCreate($event)"></app-product-form>
+      <app-product-form [product]="product" (create)="onCreate($event)" (update)="onUpdate($event)"></app-product-form>
     </div>
   `,
   styles: [
@@ -21,8 +21,12 @@ export class ProductSingleComponent {
     this.product = this.productService.readOne('xxx')
   }
 
-    onCreate(product: Product) {
-      this.productService.create(product);
-    }
+  onCreate(product: Product) {
+    this.productService.create(product);
+  }
+
+  onUpdate(product: Product) {
+    this.productService.update(product);
+  }
 
 }
