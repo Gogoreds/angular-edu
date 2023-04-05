@@ -6,15 +6,15 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-single',
   template: `
     <div class="container">
-      <app-product-form 
-        [product]="product" 
-        (create)="onCreate($event)" 
-        (update)="onUpdate($event)">
+      <app-product-form
+        [product]="product"
+        (create)="onCreate($event)"
+        (update)="onUpdate($event)"
+      >
       </app-product-form>
     </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class ProductSingleComponent {
   product!: Product;
@@ -22,7 +22,7 @@ export class ProductSingleComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.product = this.productService.readOne('xxx')
+    this.product = this.productService.readOne('xxx');
   }
 
   onCreate(product: Product) {
@@ -33,4 +33,7 @@ export class ProductSingleComponent {
     this.productService.update(product);
   }
 
+  onDelete(product: Product) {
+    this.productService.delete(product);
+  }
 }
