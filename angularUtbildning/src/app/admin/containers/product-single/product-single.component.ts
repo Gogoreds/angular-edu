@@ -6,7 +6,11 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-single',
   template: `
     <div class="container">
-      <app-product-form [product]="product" (create)="onCreate($event)" (update)="onUpdate($event)"></app-product-form>
+      <app-product-form 
+        [product]="product" 
+        (create)="onCreate($event)" 
+        (update)="onUpdate($event)">
+      </app-product-form>
     </div>
   `,
   styles: [

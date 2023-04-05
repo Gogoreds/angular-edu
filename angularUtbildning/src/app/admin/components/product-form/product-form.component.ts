@@ -56,15 +56,21 @@ import { Product } from 'app/admin/models/product.model';
 
       <label class="">
           <span>Description</span>
-          <textarea class="input input--textarea" name="description" required ngModel #description="ngModel">
+          <textarea 
+            class="input input--textarea" 
+            name="description" 
+            required 
+            ngModel 
+            #description="ngModel">
           </textarea>
           <ng-container *ngIf="description.invalid && description.touched">
           <div class="product-form-error" *ngIf="description.errors?.required">Description is required.</div>
         </ng-container>
         </label>
 
-        <button type="submit" class="btn btn--green" (click)="handleCreate(form)">Create</button>
-        <button type="submit" class="btn btn--green" (click)="handleUpdate(form)">Update</button>
+        <button type="button" class="btn btn--green" (click)="handleCreate(form)">Create</button>
+        <button type="button" class="btn btn--green" (click)="handleUpdate(form)">Update</button>
+        <button type="button" class="btn btn--green" (click)="handleDelete()">Delete</button>
         <button type="button" class="btn btn--grey" (click)="form.resetForm()">Reset Form</button>
 
         <div class="product-form-working" *ngIf="form.valid && form.submitted">
@@ -104,9 +110,11 @@ import { Product } from 'app/admin/models/product.model';
   ]
 })
 export class ProductFormComponent {
+
   @Input() product!: Product;
   @Output() create = new EventEmitter<Product>();
   @Output() update = new EventEmitter<Product>();
+  @Output() delete = new EventEmitter<Product>();
 
   icons: string[] = [
     'caramel-swirl',
@@ -127,9 +135,15 @@ export class ProductFormComponent {
   }
   handleUpdate(form: NgForm) {
     if (form.valid) {
-    this.update.emit({ id: this.product.id, ...form.value });
+     this.update.emit({ id: this.product.id, ...form.value });
     } else {
       form.form.markAllAsTouched();
+    }
+  }
+
+  handleDelete() {
+    if (confirm("Are you sure you want to delete ${this.product.name}?")) {
+    this.delete.emit({ ...this.product});
     }
   }
 }

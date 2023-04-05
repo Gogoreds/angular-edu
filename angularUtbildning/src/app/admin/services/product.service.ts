@@ -74,5 +74,10 @@ export class ProductService {
     });
     console.log(this.products);
   }
+
+  delete(payload: Product) {
+    this.products = this.products.filter((product: Product) => product.id !== payload.id);
+    console.log(this.products);
+  }
 }
 
