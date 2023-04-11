@@ -4,7 +4,7 @@
       "id": "y8z0As",
       "name": "Just Chocolate",
       "icon": "just-chocolate",
-      "price": 100,
+      "price": 119,
       "promo": "limited",
       "description": "This is just-chocolate."
     },
@@ -12,7 +12,7 @@
       "id": "3u98Kl",
       "name": "Glazed Fudge",
       "icon": "glazed-fudge",
-      "price": 130,
+      "price": 139,
       "promo": "new",
       "description": "This is Glazed Fudge."
     },
@@ -20,14 +20,14 @@
       "id": "ae098s",
       "name": "Caramel Swirl",
       "icon": "caramel-swirl",
-      "price": 150,
+      "price": 159,
       "description": "This is caramel swirl."
     },
     {
       "id": "ag0858",
       "name": "Sour Supreme",
       "icon": "sour-supreme",
-      "price": 120,
+      "price": 129,
       "description": "For the sour advocate."
     },
     {
