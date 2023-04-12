@@ -22,7 +22,9 @@ export class ProductSingleComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    // this.product = this.productService.readOne('xxx');
+    this.productService
+      .readOne('ag0858')
+      .subscribe((product: Product) => (this.product = product));
   }
 
   onCreate(product: Product) {

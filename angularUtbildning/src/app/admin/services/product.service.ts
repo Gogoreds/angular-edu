@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { tap, of } from 'rxjs';
+import { tap, of, map } from 'rxjs';
 
 import { Product } from '../models/product.model';
 
@@ -25,13 +25,17 @@ export class ProductService {
     );
   }
 
-  // readOne(id: string) {
-  //   const product = this.read().find((product: Product) => product.id === id);
-  //   if (product) {
-  //     return product;
-  //   }
-  //   return { id: '', name: '', icon: '', price: 0, description: '' };
-  // }
+  readOne(id: string) {
+    return this.read().pipe(
+      map((products) => {
+        const product = products.find((product: Product) => product.id === id);
+        if (product) {
+          return product;
+        }
+        return { name: '', icon: '', price: 0, description: '' };
+      })
+    );
+  }
 
   create(payload: Product) {
     this.products = [...this.products, payload];
