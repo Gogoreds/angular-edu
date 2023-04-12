@@ -46,13 +46,16 @@ export class ProductService {
   }
 
   update(payload: Product) {
-    this.products = this.products.map((product: Product) => {
-      if (product.id === payload.id) {
-        return payload;
-      }
-      return product;
-    });
-    console.log(this.products);
+    return this.http.put<Product>(`/api/products/${payload.id}`, payload).pipe(
+      tap((product) => {
+        this.products = this.products.map((item: Product) => {
+          if (item.id === product.id) {
+            return product;
+          }
+          return item;
+        });
+      })
+    );
   }
 
   delete(payload: Product) {

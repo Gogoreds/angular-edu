@@ -27,8 +27,9 @@
       "id": "ag0858",
       "name": "Sour Supreme",
       "icon": "sour-supreme",
-      "price": 129,
-      "description": "For the sour advocate."
+      "price": 159,
+      "promo": "new",
+      "description": "For the sour advocate!"
     },
     {
       "id": "KL698s",

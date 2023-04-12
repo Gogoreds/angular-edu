@@ -23,7 +23,7 @@ export class ProductSingleComponent {
 
   ngOnInit(): void {
     this.productService
-      .readOne('xxx')
+      .readOne('ag0858')
       .subscribe((product: Product) => (this.product = product));
   }
 
@@ -34,7 +34,9 @@ export class ProductSingleComponent {
   }
 
   onUpdate(product: Product) {
-    this.productService.update(product);
+    this.productService
+      .update(product)
+      .subscribe(() => console.log('Updated!'));
   }
 
   onDelete(product: Product) {
