@@ -38,9 +38,11 @@ export class ProductService {
   }
 
   create(payload: Product) {
-    return this.http.post<Product>(`/api/products`, payload);
-    // this.products = [...this.products, payload];
-    // console.log(this.products);
+    return this.http.post<Product>(`/api/products`, payload).pipe(
+      tap((product) => {
+        this.products = [...this.products, product];
+      })
+    );
   }
 
   update(payload: Product) {
