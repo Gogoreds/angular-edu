@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { tap, of, map } from 'rxjs';
+import { tap, of, map, catchError, throwError } from 'rxjs';
 
 import { Product } from '../models/product.model';
 
@@ -21,7 +21,8 @@ export class ProductService {
     return this.http.get<Product[]>(`/api/products`).pipe(
       tap((products) => {
         this.products = products;
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -41,7 +42,8 @@ export class ProductService {
     return this.http.post<Product>(`/api/products`, payload).pipe(
       tap((product) => {
         this.products = [...this.products, product];
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -54,7 +56,8 @@ export class ProductService {
           }
           return item;
         });
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -64,7 +67,19 @@ export class ProductService {
         this.products = this.products.filter(
           (product: Product) => product.id !== payload.id
         );
-      })
+      }),
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    if (err.error instanceof ErrorEvent) {
+      // Client side
+      console.warn('Client side', err.message);
+    } else {
+      // Server side
+      console.warn('Server side', err.status);
+    }
+    return throwError(() => new Error(err.message));
   }
 }

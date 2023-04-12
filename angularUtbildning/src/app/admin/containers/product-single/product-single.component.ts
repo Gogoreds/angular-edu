@@ -35,9 +35,10 @@ export class ProductSingleComponent {
   }
 
   onUpdate(product: Product) {
-    this.productService
-      .update(product)
-      .subscribe(() => console.log('Updated!'));
+    this.productService.update(product).subscribe({
+      next: () => console.log('Updated!'),
+      error: (err) => console.log('onUpdate error:', err),
+    });
   }
 
   onDelete(product: Product) {
