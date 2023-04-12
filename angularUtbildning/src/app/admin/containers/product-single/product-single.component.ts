@@ -23,12 +23,14 @@ export class ProductSingleComponent {
 
   ngOnInit(): void {
     this.productService
-      .readOne('ag0858')
+      .readOne('xxx')
       .subscribe((product: Product) => (this.product = product));
   }
 
   onCreate(product: Product) {
-    this.productService.create(product);
+    this.productService
+      .create(product)
+      .subscribe(() => console.log('Created!'));
   }
 
   onUpdate(product: Product) {
