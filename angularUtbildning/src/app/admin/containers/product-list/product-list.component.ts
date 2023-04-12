@@ -6,7 +6,7 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-list',
   template: `
     <div>
-      <ng-container *ngIf="products.length; else nothing">
+      <ng-container *ngIf="products?.length; else nothing">
         <app-product-card
           *ngFor="let product of products; trackBy: trackById"
           [product]="product"

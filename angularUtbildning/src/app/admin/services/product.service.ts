@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
 import { HttpClient } from '@angular/common/http';
+
+import { tap } from 'rxjs/operators';
+
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +14,11 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   read() {
-    return this.http.get<Product[]>(`/api/products`);
-    // return this.products;
+    return this.http.get<Product[]>(`/api/products`).pipe(
+      tap((products) => {
+        this.products = products;
+      })
+    );
   }
 
   // readOne(id: string) {
