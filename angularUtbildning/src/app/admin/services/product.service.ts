@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,19 +8,20 @@ import { Product } from '../models/product.model';
 export class ProductService {
   private products: Product[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   read() {
-    return this.products;
+    return this.http.get<Product[]>(`/api/products`);
+    // return this.products;
   }
 
-  readOne(id: string) {
-    const product = this.read().find((product: Product) => product.id === id);
-    if (product) {
-      return product;
-    }
-    return { id: '', name: '', icon: '', price: 0, description: '' };
-  }
+  // readOne(id: string) {
+  //   const product = this.read().find((product: Product) => product.id === id);
+  //   if (product) {
+  //     return product;
+  //   }
+  //   return { id: '', name: '', icon: '', price: 0, description: '' };
+  // }
 
   create(payload: Product) {
     this.products = [...this.products, payload];
