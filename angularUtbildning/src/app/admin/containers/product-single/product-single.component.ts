@@ -10,6 +10,7 @@ import { Product } from '../../models/product.model';
         [product]="product"
         (create)="onCreate($event)"
         (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
       >
       </app-product-form>
     </div>
@@ -23,7 +24,7 @@ export class ProductSingleComponent {
 
   ngOnInit(): void {
     this.productService
-      .readOne('ag0858')
+      .readOne('DR7ViI6')
       .subscribe((product: Product) => (this.product = product));
   }
 
@@ -40,6 +41,8 @@ export class ProductSingleComponent {
   }
 
   onDelete(product: Product) {
-    this.productService.delete(product);
+    this.productService
+      .delete(product)
+      .subscribe(() => console.log('Deleted!'));
   }
 }

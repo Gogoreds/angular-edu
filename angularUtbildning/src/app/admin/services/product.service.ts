@@ -59,9 +59,12 @@ export class ProductService {
   }
 
   delete(payload: Product) {
-    this.products = this.products.filter(
-      (product: Product) => product.id !== payload.id
+    return this.http.delete<Product>(`/api/products/${payload.id}`).pipe(
+      tap(() => {
+        this.products = this.products.filter(
+          (product: Product) => product.id !== payload.id
+        );
+      })
     );
-    console.log(this.products);
   }
 }

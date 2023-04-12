@@ -37,14 +37,6 @@
       "icon": "zesty-lemon",
       "price": 139,
       "description": "Delicious lucious lemon."
-    },
-    {
-      "name": "Chunknut",
-      "icon": "glazed-fudge",
-      "price": 229,
-      "promo": "limited",
-      "description": "FOR THE CHUNKS!",
-      "id": "DR7ViI6"
     }
   ]
 }
