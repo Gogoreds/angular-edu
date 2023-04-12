@@ -16,14 +16,15 @@ import { Product } from '../../models/product.model';
         class="product-card-icon"
       />
       <div>
-        <p class="product-card-name">{{ product.name }}
-        <ng-container [ngSwitch]="product.promo"]>
-          <span class="product-card-lable">
-            <ng-template [ngSwitchCase]="'new'"]>NEW</ng-template>
-            <ng-template [ngSwitchCase]="'limited'">LIMITED</ng-template>
-            <ng-template ngSwitchDefault> Nothing Special </ng-template>
-          </span>
-        </ng-container>
+        <p class="product-card-name">
+          {{ product.name }}
+          <ng-container [ngSwitch]="product.promo" ]>
+            <span class="product-card-lable">
+              <ng-template [ngSwitchCase]="'new'" ]>NEW</ng-template>
+              <ng-template [ngSwitchCase]="'limited'">LIMITED</ng-template>
+              <ng-template ngSwitchDefault> Nothing Special </ng-template>
+            </span>
+          </ng-container>
         </p>
 
         <p class="product-card-price">

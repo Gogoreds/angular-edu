@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { tap } from 'rxjs/operators';
+import { tap, of } from 'rxjs';
 
 import { Product } from '../models/product.model';
 
@@ -9,11 +9,15 @@ import { Product } from '../models/product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  private products: Product[] = [];
+  private products: Product[] = []; // STATE
 
   constructor(private http: HttpClient) {}
 
   read() {
+    if (this.products.length) {
+      return of(this.products);
+    }
+
     return this.http.get<Product[]>(`/api/products`).pipe(
       tap((products) => {
         this.products = products;
